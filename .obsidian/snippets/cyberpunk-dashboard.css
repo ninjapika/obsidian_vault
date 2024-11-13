@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+/* Base Theme Colors */
+.theme-dark {
+    --background-primary: #0a0a0f;
+    --background-secondary: #12121f;
+    --background-tertiary: #1a1a2f;
+    --neon-primary: #00fff2;
+    --neon-secondary: #00ff9d;
+    --neon-pink: #ff00ff;
+    --neon-warning: #ff9d00;
+    --neon-error: #ff2222;
+    --text-normal: #00ff9d;
+    --text-muted: #005c4b;
+    --text-faint: #002b24;
+    --text-error: #ff2222;
+    --text-accent: #00fff2;
+    --interactive-normal: #002b24;
+    --interactive-hover: #005c4b;
+    --interactive-accent: #00fff2;
+    --background-modifier-border: #00fff2;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background: radial-gradient(circle at center, var(--background-secondary) 0%, var(--background-primary) 100%);
+    transition: background 0.3s ease;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-secondary);
+}
+
+/* Headers */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-primary);
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid var(--neon-primary);
+    border-radius: 4px;
+    background: rgba(0, 255, 242, 0.05);
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view h1:hover,
+.markdown-preview-view h2:hover,
+.markdown-preview-view h3:hover,
+.markdown-preview-view h4:hover,
+.markdown-preview-view h5:hover,
+.markdown-preview-view h6:hover {
+    box-shadow: 0 0 10px var(--neon-primary);
+}
+
+/* Links */
+.markdown-preview-view a {
+    color: var(--neon-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--neon-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.markdown-preview-view a:hover {
+    color: var(--neon-pink);
+    border-bottom: 1px solid var(--neon-pink);
+}
+
+.markdown-preview-view a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--neon-pink);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.markdown-preview-view a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/* Code Blocks */
+.markdown-preview-view pre {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--neon-primary);
+    box-shadow: 0 0 10px var(--neon-primary);
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view pre:hover {
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.markdown-preview-view code {
+    color: var(--neon-secondary);
+}
+
+/* Blockquotes */
+.markdown-preview-view blockquote {
+    border-left: 3px solid var(--neon-warning);
+    background-color: rgba(255, 157, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view blockquote:hover {
+    background-color: rgba(255, 157, 0, 0.2);
+    box-shadow: 0 0 10px var(--neon-warning);
+}
+
+/* Lists */
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+    padding-left: 2rem;
+}
+
+.markdown-preview-view li {
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view li:hover {
+    color: var(--neon-pink);
+}
+
+.markdown-preview-view li::marker {
+    color: var(--neon-primary);
+}
+
+/* Tables */
+.markdown-preview-view table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid var(--neon-primary);
+    background: rgba(0, 255, 242, 0.05);
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view table:hover {
+    box-shadow: 0 0 15px var(--neon-primary);
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+    border: 1px solid var(--neon-primary);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view th {
+    background-color: rgba(0, 255, 242, 0.2);
+    color: var(--neon-primary);
+    font-weight: bold;
+}
+
+.markdown-preview-view tr:hover {
+    background-color: rgba(255, 0, 255, 0.1);
+}
+
+/* Task Lists */
+.markdown-preview-view .task-list-item-checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid var(--neon-secondary);
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    transition: all 0.3s ease;
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked {
+    background-color: var(--neon-secondary);
+    box-shadow: 0 0 5px var(--neon-secondary);
+}
+
+.markdown-preview-view .task-list-item-checkbox:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 5px var(--neon-pink);
+}
+
+/* Callouts */
+.callout {
+    background-color: rgba(0, 255, 242, 0.05);
+    border: 1px solid var(--neon-primary);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Callouts (continued) */
+.callout:hover {
+    box-shadow: 0 0 15px var(--neon-pink);
+    background-color: rgba(0, 255, 242, 0.1);
+}
+
+.callout-title {
+    color: var(--neon-primary);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.callout:hover .callout-title {
+    color: var(--neon-pink);
+}
+
+/* Sidebar and Navigation with Animations */
+.nav-folder-title,
+.nav-file-title {
+    color: var(--neon-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-folder-title::before,
+.nav-file-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--neon-pink);
+    transition: height 0.3s ease;
+}
+
+.nav-folder-title:hover::before,
+.nav-file-title:hover::before {
+    height: 100%;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+    color: var(--neon-pink);
+    background-color: rgba(255, 0, 255, 0.1);
+    transform: translateX(3px);
+}
+
+.nav-file-title.is-active {
+    color: var(--neon-primary);
+    background-color: rgba(0, 255, 242, 0.2);
+    border-left: 2px solid var(--neon-primary);
+    animation: activeFileGlow 2s infinite alternate;
+}
+
+@keyframes activeFileGlow {
+    from {
+        box-shadow: 0 0 5px var(--neon-primary);
+    }
+    to {
+        box-shadow: 0 0 15px var(--neon-pink);
+    }
+}
+
+/* Graph View Enhanced */
+.graph-view.color-fill {
+    color: var(--neon-secondary);
+    transition: all 0.3s ease;
+}
+
+.graph-view.color-circle {
+    color: var(--neon-primary);
+    animation: pulseGraph 2s infinite alternate;
+}
+
+@keyframes pulseGraph {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Status Bar Enhancement */
+.status-bar {
+    background-color: var(--background-tertiary);
+    border-top: 1px solid var(--neon-primary);
+    animation: statusBarGlow 4s infinite alternate;
+}
+
+@keyframes statusBarGlow {
+    0% {
+        border-color: var(--neon-primary);
+    }
+    50% {
+        border-color: var(--neon-pink);
+    }
+    100% {
+        border-color: var(--neon-secondary);
+    }
+}
+
+/* Custom Cyberpunk Container with Animation */
+.cyberpunk-container {
+    border: 1px solid var(--neon-primary);
+    background: rgba(0, 255, 242, 0.05);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyberpunk-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--neon-pink), 
+        var(--neon-primary)
+    );
+    animation: scanline 3s infinite linear;
+}
+
+@keyframes scanline {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Glitch Effect for Headers */
+h1:hover {
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-primary);
+    }
+    25% {
+        text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-primary);
+    }
+    50% {
+        text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-primary);
+    }
+    75% {
+        text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-primary);
+    }
+    100% {
+        text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-primary);
+    }
+}
+
+/* Modal Windows Enhancement */
+.modal {
+    background-color: var(--background-primary);
+    border: 1px solid var(--neon-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 242, 0.3);
+    border-radius: 5px;
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Animations */
+button {
+    background-color: rgba(0, 255, 242, 0.1);
+    border: 1px solid var(--neon-primary);
+    color: var(--neon-secondary);
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: var(--neon-pink);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Mobile Optimizations */
+
+
+
+
+
+
+/* Make the brackets and text visible in callout metadata while editing */
+.cm-formatting-header.cm-formatting-header-1,
+.cm-formatting-header.cm-formatting-header-2,
+.cm-formatting-header.cm-formatting-header-3,
+.cm-formatting-header.cm-formatting-header-4,
+.cm-formatting-header.cm-formatting-header-5,
+.cm-formatting-header.cm-formatting-header-6,
+.cm-formatting.cm-formatting-quote,
+.cm-formatting.cm-formatting-list,
+.cm-formatting.cm-formatting-link,
+.cm-formatting-link.cm-formatting-link-start,
+.cm-formatting-link.cm-formatting-link-end,
+.cm-formatting.cm-formatting-code,
+.cm-formatting.cm-formatting-strong,
+.cm-formatting.cm-formatting-em,
+.cm-formatting.cm-formatting-strikethrough,
+.cm-formatting.cm-formatting-highlight,
+.cm-formatting-callout {
+    color: var(--neon-secondary) !important;
+    opacity: 0.8;
+}
+
+/* Make unchecked checkboxes visible in editing mode */
+.cm-formatting-task {
+    color: var(--neon-primary) !important;
+    opacity: 0.8;
+}
+
+/* Enhance checkbox appearance */
+.markdown-source-view.mod-cm6 .task-list-item-checkbox {
+    border: 1px solid var(--neon-secondary);
+    background-color: transparent;
+}
+
+/* Make the brackets [ ] visible for unchecked boxes */
+.cm-formatting-task.cm-property {
+    color: var(--neon-secondary) !important;
+    opacity: 0.8;
+}
+
+
+.markdown-preview-view {
+    overflow-y: auto;
+}
+
+
+.workspace-drawer-active-tab-icon,
+.workspace-drawer-active-tab-title {
+    color: #307872;
+}
+
+
+
+
+
+
+
+
+
